@@ -13,7 +13,6 @@ set listchars=tab:›─,trail:␣       " Show tabs and trailing whitespaces.
 set nowrap                         " Disable wrapping of lines.
 set nrformats=bin,hex,alpha        " Also consider the alphabet when incrementing/decrementing.
 set updatetime=500                 " Reduce the time before a backup is saved to disk.
-set relativenumber                 " Show relative line numbers.
 set undofile                       " Remain persistent undo file between vim sessions.
 set splitbelow                     " Split files below current open file.
 set splitright                     " Split files right of current open file.
@@ -37,22 +36,23 @@ Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'Maxattax97/coc-ccls', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 
-Plug 'junegunn/fzf.vim'              " Fuzzy finding tools.
-Plug 'junegunn/vim-easy-align'       " Alignment around operator
-Plug 'preservim/nerdtree'            " File tree.
-Plug 'tpope/vim-commentary'          " Comment code.
-Plug 'tpope/vim-surround'            " Extension for changing surroundings.
-Plug 'tpope/vim-repeat'              " Allow repeating of commands like change surroundings.
-Plug 'tpope/vim-sleuth'              " Automatically find the indentation given the file and neighbouring files.
-Plug 'lambdalisue/suda.vim'          " Write as sudo, workaround for https://github.com/neovim/neovim/issues/8527 .
-Plug 'tpope/vim-fugitive'            " Git support inside vim.
-Plug 'cespare/vim-toml'              " Formatting for (Cargo).toml files.
-Plug 'rust-lang/rust.vim'            " Formatting for rust files.
-Plug 'airblade/vim-gitgutter'        " Git gutter.
-Plug 'Yggdroot/indentLine'           " Line for showing indentation level.
-Plug 'itchyny/lightline.vim'         " Fancy status bar.
-Plug 'shinchu/lightline-gruvbox.vim' " Gruvbox theme for lightline.
-Plug 'markstory/vim-zoomwin'         " Allow temporarily zooming in on a buffer.
+Plug 'junegunn/fzf.vim'               " Fuzzy finding tools.
+Plug 'junegunn/vim-easy-align'        " Alignment around operator
+Plug 'preservim/nerdtree'             " File tree.
+Plug 'tpope/vim-commentary'           " Comment code.
+Plug 'tpope/vim-surround'             " Extension for changing surroundings.
+Plug 'tpope/vim-repeat'               " Allow repeating of commands like change surroundings.
+Plug 'tpope/vim-sleuth'               " Automatically find the indentation given the file and neighbouring files.
+Plug 'lambdalisue/suda.vim'           " Write as sudo, workaround for https://github.com/neovim/neovim/issues/8527 .
+Plug 'tpope/vim-fugitive'             " Git support inside vim.
+Plug 'cespare/vim-toml'               " Formatting for (Cargo).toml files.
+Plug 'rust-lang/rust.vim'             " Formatting for rust files.
+Plug 'airblade/vim-gitgutter'         " Git gutter.
+Plug 'Yggdroot/indentLine'            " Line for showing indentation level.
+Plug 'itchyny/lightline.vim'          " Fancy status bar.
+Plug 'shinchu/lightline-gruvbox.vim'  " Gruvbox theme for lightline.
+Plug 'markstory/vim-zoomwin'          " Allow temporarily zooming in on a buffer.
+Plug 'PeterRincker/vim-argumentative' " Adds functionality to work with arguments.
 
 " Initialize plugin system
 call plug#end()
@@ -188,6 +188,7 @@ let g:indentLine_char = '▏'
 let g:indentLine_bufNameExclude = ["term:.*"]
 " Disable indentLine for json files as it conceals quotation marks.
 autocmd Filetype json :IndentLinesDisable
+autocmd Filetype markdown :IndentLinesDisable
 
 " }}}
 
