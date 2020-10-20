@@ -36,23 +36,24 @@ Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'Maxattax97/coc-ccls', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 
-Plug 'junegunn/fzf.vim'               " Fuzzy finding tools.
-Plug 'junegunn/vim-easy-align'        " Alignment around operator
-Plug 'preservim/nerdtree'             " File tree.
-Plug 'tpope/vim-commentary'           " Comment code.
-Plug 'tpope/vim-surround'             " Extension for changing surroundings.
-Plug 'tpope/vim-repeat'               " Allow repeating of commands like change surroundings.
-Plug 'tpope/vim-sleuth'               " Automatically find the indentation given the file and neighbouring files.
-Plug 'lambdalisue/suda.vim'           " Write as sudo, workaround for https://github.com/neovim/neovim/issues/8527 .
-Plug 'tpope/vim-fugitive'             " Git support inside vim.
-Plug 'cespare/vim-toml'               " Formatting for (Cargo).toml files.
-Plug 'rust-lang/rust.vim'             " Formatting for rust files.
-Plug 'airblade/vim-gitgutter'         " Git gutter.
-Plug 'Yggdroot/indentLine'            " Line for showing indentation level.
-Plug 'itchyny/lightline.vim'          " Fancy status bar.
-Plug 'shinchu/lightline-gruvbox.vim'  " Gruvbox theme for lightline.
-Plug 'markstory/vim-zoomwin'          " Allow temporarily zooming in on a buffer.
-Plug 'PeterRincker/vim-argumentative' " Adds functionality to work with arguments.
+Plug 'morhetz/gruvbox'                              " Gruvbox color theme.
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy finding.
+Plug 'junegunn/fzf.vim'                             " Fuzzy finding tools.
+Plug 'junegunn/vim-easy-align'                      " Alignment around operator
+Plug 'preservim/nerdtree'                           " File tree.
+Plug 'tpope/vim-commentary'                         " Comment code.
+Plug 'tpope/vim-surround'                           " Extension for changing surroundings.
+Plug 'tpope/vim-repeat'                             " Allow repeating of commands like change surroundings.
+Plug 'tpope/vim-sleuth'                             " Automatically find the indentation given the file and neighbouring files.
+Plug 'lambdalisue/suda.vim'                         " Write as sudo, workaround for https://github.com/neovim/neovim/issues/8527 .
+Plug 'tpope/vim-fugitive'                           " Git support inside vim.
+Plug 'cespare/vim-toml'                             " Formatting for (Cargo).toml files.
+Plug 'rust-lang/rust.vim'                           " Formatting for rust files.
+Plug 'airblade/vim-gitgutter'                       " Git gutter.
+Plug 'itchyny/lightline.vim'                        " Fancy status bar.
+Plug 'shinchu/lightline-gruvbox.vim'                " Gruvbox theme for lightline.
+Plug 'markstory/vim-zoomwin'                        " Allow temporarily zooming in on a buffer.
+Plug 'PeterRincker/vim-argumentative'               " Adds functionality to work with arguments.
 
 " Initialize plugin system
 call plug#end()
@@ -92,8 +93,8 @@ xnoremap p pgvy
 " {{{ Terminal related settings.
 
 augroup TerminalNoSignColumn
-   au!
-  autocmd TermOpen * setlocal nonumber norelativenumber signcolumn=no
+	au!
+	autocmd TermOpen * setlocal nonumber norelativenumber signcolumn=no
 augroup END
 
 " Add SplitTerminal to open a new split terminal.
@@ -109,7 +110,7 @@ tnoremap <C-d> <C-\><C-n>
 " {{{ Color scheme.
 
 let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
+colorscheme gruvbox-custom
 set termguicolors
 
 " }}}
@@ -177,18 +178,6 @@ map <silent> ` :NERDTreeToggle<CR>
 
 " Sudo write.
 cmap w!! w suda://%
-
-" }}}
-
-" {{{ Indentation line settings.
-
-" Show indentation line.
-let g:indentLine_char = '▏'
-" Disable in terminal.
-let g:indentLine_bufNameExclude = ["term:.*"]
-" Disable indentLine for json files as it conceals quotation marks.
-autocmd Filetype json :IndentLinesDisable
-autocmd Filetype markdown :IndentLinesDisable
 
 " }}}
 
